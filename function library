@@ -1,0 +1,149 @@
+# functions
+#import modules 
+import os 
+import random
+
+# calculates sum
+def add ():
+    numbers1 = input("problem?:  ")
+    parts = numbers1.split("+")
+    num1 = int(parts[0])
+    num2 = int(parts[1])
+    add = num1 + num2
+    print (add)
+    clear()
+
+# calculates difference 
+def subtract ():
+    numbers1 = input("problem?:  ")
+    parts = numbers1.split("-")
+    num1 = int(parts[0])
+    num2 = int(parts[1])
+    subtract = num1 - num2
+    print (subtract)  
+    clear()
+
+# calculates product 
+def multiply ():
+    numbers1 = input("problem?:  ")
+    parts = numbers1.split("*")
+    num1 = int(parts[0])
+    num2 = int(parts[1])
+    multiply = num1 * num2
+    print (multiply)
+    clear()
+    
+# calculates quotient 
+def divide ():
+    numbers1 = input("problem?:  ")
+    parts = numbers1.split("/")
+    num1 = parts[0]
+    num2 = parts[1]
+    divide = float(num1) / float(num2)
+    print (divide)
+    clear()
+    
+# calculates remainder
+def rem():
+    numbers1 = input("problem?:  ")
+    parts = numbers1.split("/")
+    num1 = int(parts[0])
+    num2 = int(parts[1])
+    rem = num1%num2
+    print(rem)
+    clear()
+    
+# calculates pseudorandom number 
+def random_number ():
+    ranNum = input("Random integer between \"x and y\":  ")
+    parts=ranNum.split(" and ")
+    num1 = int(parts[0])
+    num2 = int(parts[1])
+    random_number = random.randint(num1,num2)
+    print(random_number)
+    clear()
+
+# quadratic formula     
+def quadratic_formula ():
+    numbers = input("Give me A B and C:  ")
+    parts = numbers.split(" ")
+    a = float(parts[0])
+    b = float(parts[1])
+    c = float(parts[2])
+
+    disc = b**2 - 4*a*c
+    if disc >= 0:
+        ans1 = (b*-1 + disc**0.5)/(2*a)
+        ans2 = (b*-1 - disc**0.5)/(2*a)
+        print ("x = " + str(ans1) + ", " + str(ans2))
+    elif disc < 0:
+        newDisc = disc*-1
+        newNum = disc * -1
+        sqrtImagine = newNum**0.5
+        sqrtImagineInt = int(sqrtImagine)
+        if (sqrtImagine == sqrtImagineInt):
+            print("x = (" + str(b*-1) +" + "+str(sqrtImagineInt) + "i)/" + str(2*a) + ", (" + str(b*-1) +" - "+str(sqrtImagineInt) + "i)/" + str(2*a))
+        else:
+            print("x = (" + str(b*-1) +" + sqrt("+str(sqrtImagineInt) + ")i)/" + str(2*a) + ", (" + str(b*-1) +" - sqrt(" + str(sqrtImagineInt) + "))/" + str(2*a))
+    clear()
+
+# calculates square root of number or number raised to a given power
+def sqrt ():
+    inputd = input("sqrt or power?:  ")
+    if inputd == "sqrt":
+        number = int(input("what number are you rooting?: "))
+        if (number < 0):
+            newNum = number * -1
+            sqrtImagine = newNum**0.5
+            sqrtImagineInt = int(sqrtImagine)
+            if (sqrtImagine == sqrtImagineInt):
+                print(str(sqrtImagineInt) + "i")
+            else:
+                print ("sqrt(" + str(newNum) + ")i")
+        elif (number >= 0):
+            sqrt = number**0.5
+            print (sqrt)
+    elif inputd == "power":
+        numberz = input("problem? \"x^y\"  ")
+        parts = numberz.split("^")
+        x = float(parts[0])
+        y = float(parts[1])
+        total = x**y
+        print(total)
+    clear()
+
+#function to clear console log
+def clear ():
+    blank = input("\npress enter to continue:  ")
+    if blank == "":
+        os.system('clear')
+
+# while statement loops code         
+while True:
+    # prompts user for input
+    what = input("math? (type \"math\" for list of functions):  ")
+    what = what.lower()
+
+    # displays list of functions on calculator
+    if (what == "math"):
+        os.system('clear')
+        print("add\nsubtract\nmultiply\ndivide\nremainder\nrandom number\nquadratic formula\nsquare root\nexponent")
+        clear()
+        
+    # calls functions 
+    elif (what == "add"):
+        add()
+    elif (what == "subtract"):
+        subtract()
+    elif (what == "multiply"):
+        multiply()
+    elif (what == "divide"):
+        divide()
+    elif (what == "rem" or what == "remainder"):
+        rem()
+    elif (what == "random number"):
+        random_number()
+    elif (what == "quadratic formula"):
+        quadratic_formula()
+    elif (what == "square root" or what == "exponent"):
+        sqrt()
