@@ -112,38 +112,4 @@ def sqrt ():
         print(total)
     clear()
 
-#function to clear console log
-def clear ():
-    blank = input("\npress enter to continue:  ")
-    if blank == "":
-        os.system('clear')
 
-# while statement loops code         
-while True:
-    # prompts user for input
-    what = input("math? (type \"math\" for list of functions):  ")
-    what = what.lower()
-
-    # displays list of functions on calculator
-    if (what == "math"):
-        os.system('clear')
-        print("add\nsubtract\nmultiply\ndivide\nremainder\nrandom number\nquadratic formula\nsquare root\nexponent")
-        clear()
-        
-    # calls functions 
-    elif (what == "add"):
-        add()
-    elif (what == "subtract"):
-        subtract()
-    elif (what == "multiply"):
-        multiply()
-    elif (what == "divide"):
-        divide()
-    elif (what == "rem" or what == "remainder"):
-        rem()
-    elif (what == "random number"):
-        random_number()
-    elif (what == "quadratic formula"):
-        quadratic_formula()
-    elif (what == "square root" or what == "exponent"):
-        sqrt()
